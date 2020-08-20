@@ -12,7 +12,7 @@ function preload()
 }
 
 function setup() {
-	createCanvas(800, 400);
+	createCanvas(800, 700);
 	rectMode(CENTER);
 	
 
@@ -31,8 +31,8 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
-	World.add(world.packageBody);
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.4, isStatic:true});
+	World.add(world, packageBody);
 	
 
 	//Create a Ground
@@ -56,10 +56,7 @@ function draw() {
 
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
-    // Look at the hints in the document and understand how to make the package body fall only on
+    Matter.Body.setStatic(packageBody,false);
     
   }
 }
-
-
-
